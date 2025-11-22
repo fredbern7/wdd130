@@ -45,8 +45,9 @@ aside {
 
 
 h1 { 
-   color: var(heading-one);
-   border: 2px solid var(--border-one);
+   color: var(--heading-one);
+   border-bottom: 2px solid blue;
+   padding: 0 0 20px 0;
 }
 
 
