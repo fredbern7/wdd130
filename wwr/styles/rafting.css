@@ -27,6 +27,51 @@ header, main, footer {
     margin: 0 auto;
 }
 
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+header img {
+    margin: 0 0.25rem 0 1rem;
+    width: auto;
+    height: auto;
+    grid-column: 1/2;
+}
+
+nav {
+    grid-column: 2/6;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    flex: 1 1 auto;
+    list-style: none;
+}
+
+nav a {
+    display: block;
+    color: navy;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+nav a:hover {
+    color: tomato;
+    text-decoration: underline;
+}
+
+
+
 h1, h2 {
     font-family: var(--heading-font);
     color: var(--accent3-color);
@@ -39,10 +84,6 @@ nav, p, section, article {
     padding: 8px;
 }
 
-/* remove link's underline */
-.socialmedia a {
-    text-decoration: none;
-}
 
 .hero {
     position: relative;
@@ -82,6 +123,7 @@ h1 {
 .hero p {
     margin: 0;
 }
+
 .hero article img {
     float: right;
     width: 125px;
@@ -91,6 +133,7 @@ section {
     margin: 20px 0 auto;
     padding: 0;
 }
+
 section h2 {
     display: block;
     margin: 0 auto;
@@ -100,8 +143,27 @@ section h2 {
 
 footer {
     margin: 15px auto;
-    text-align: center;
 }
+
+.socialmedia {
+    display: flex;
+    list-style: none;
+    width: 200px;
+    float: left;
+    position: relative;
+}
+
+/* remove link's underline */
+.socialmedia a {
+    text-decoration: none;
+    flex: 1 1 auto;
+    list-style: none;
+}
+
 footer img {
     width: 25px;
+}
+
+footer p {
+   text-align: center;
 }
