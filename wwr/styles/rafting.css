@@ -141,18 +141,48 @@ section h2 {
     padding: 10px;
 }
 
+.section2 {
+    display: flex;
+    /* The magic for side-by-side alignment */
+  display: flex;
+  align-items: flex-start; /* Aligns items to the top */
+  gap: 20px; /* Space between the image and the text */
+
+  /* Set max width for the container */
+  max-width: 600px;
+}
+
+.history-image {
+/* Keep the image at a specific size */
+  width: 150px;
+  height: auto;
+  /* Prevent the image from growing */
+  flex-shrink: 0;
+}
+
+.section2 {
+    /* Allows the text to take up the remaining space */
+  flex-grow: 1;
+}
+
 footer {
     margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .socialmedia {
     display: flex;
     list-style: none;
     width: 200px;
-    float: left;
-    position: relative;
+    float: right;
 }
 
+footer p {
+   text-align: center;
+   position: relative;
+}
 /* remove link's underline */
 .socialmedia a {
     text-decoration: none;
@@ -164,6 +194,3 @@ footer img {
     width: 25px;
 }
 
-footer p {
-   text-align: center;
-}
