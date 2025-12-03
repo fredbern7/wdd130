@@ -240,12 +240,12 @@ section h2 {
 
 figure img{
     width: auto;
-    height: 180px;
+    height: 150px;
 }
 
 figure {
     text-align: center;
-    width: 210px;
+    width: 175px;
     padding: 10px;
     box-shadow: 0 0 10px gray; 
 }
