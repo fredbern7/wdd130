@@ -9,15 +9,15 @@
     --body-font: arial, Helvetica, sans-serif;
 }
 
-.border {
-    border: solid 1px gray;
-}
-
 /* Reset the CSS box-model properties */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.border {
+    border: solid 1px gray;
 }
 
 body {
@@ -62,15 +62,13 @@ nav li {
 nav a {
     display: block;
     color: var(--primary-color);
-    padding: 20px;
+    padding: 10px;
     margin: 5px;
     text-decoration: none;
     font-size: 1.2rem;
     justify-content: center;
     text-align: center;
-    text-decoration: none;
     font-weight: bold;
-    padding: 10px 0;
     border-right: 2px solid gray;
     border-bottom: 2px solid gray;
     background-color: #eee2c4;
@@ -79,14 +77,6 @@ nav a {
 nav a:hover {
     background-color: var(--secondary-color);
     text-decoration: underline;
-}
-
-
-.map-form-wrapper {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto auto;
-    gap: 5px;
 }
 
 h1 {
@@ -126,8 +116,6 @@ h1 {
 .gmap_canvas {
     overflow: hidden;
     background: none;
-    overflow:hidden;
-    background:none;
     width:100%;
     height:100%;
 }
@@ -215,7 +203,6 @@ nav, p, section, article {
 section {
     margin: 0 auto;
     margin-bottom: 40px;
-    padding: 0;
     padding: 5px;
 }
 
