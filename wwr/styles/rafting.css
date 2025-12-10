@@ -237,7 +237,7 @@ h2 {
     box-shadow: 0 0 30px #1e1b1b;
 }
 
-.call-to-action:hover {
+.call-to-action:hover, .call-to-contact:hover {
     background-color: #264653;
     color: #ffffff;
 }
