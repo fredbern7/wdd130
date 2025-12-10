@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;900&display=swap');
+
 /* Define CSS variable */
 :root {
-    --primary-color: #055a05;
-    --secondary-color: #f4a261;
-    --accent1-color: #264653;
-    --accent2-color: #e9c46a;
-    --accent3-color: #ffffff;
-    --heading-font: "Times New Roman", "George", serif;
-    --body-font: arial, Helvetica, sans-serif;
+    --primary-color: #055a05; 
+    --secondary-color: #f4a261; 
+    --accent1-color: #264653; 
+    --accent2-color: #1a936f; 
+    --accent3-color: #ffffff; 
+    --heading-font: 'Montserrat', sans-serif; 
+    --body-font: 'Lato', sans-serif; 
 }
 
 /* Reset the CSS box-model properties */
@@ -21,9 +23,14 @@ body {
     color: var(--accent1-color);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    /* Use Montserrat for headings, making them bold */
+    font-family: var(--heading-font);
+}
+
 /* Limit page width for header, main, footer */
-header, main, footer {
-    width: 840px;
+header, .subscribe, main, footer {
+    width: 980px;
     margin: 0 auto;
 }
 
@@ -36,7 +43,8 @@ header {
 
 header img {
     margin: 0 0.25rem 0 1rem;
-    width: 175px;
+    width: 250px;
+    height: 300px;
     height: auto;
     grid-column: 1/2;
 }
@@ -57,7 +65,7 @@ nav li {
 
 nav a {
     display: block;
-    color: var(--primary-color);
+    color: var(--accent1-color);
     padding: 20px;
     margin: 5px;
     text-decoration: none;
@@ -67,29 +75,10 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     padding: 10px 0;
-    border-right: 2px solid gray;
-    border-bottom: 2px solid gray;
-    background-color: #eee2c4;
 }
 
 nav a:hover {
-    background-color: var(--secondary-color);
     text-decoration: underline;
-}
-
-
-
-h1 {
-    font-family: var(--heading-font);
-    color: var(--accent3-color);
-    text-align: center;
-    background-color: var(--accent1-color);
-}
-
-h2 {
-    font-family: var(--heading-font);
-    text-align: center;
-    color: var(--accent1-color);
 }
 
 nav, p, section, article {
@@ -100,12 +89,13 @@ nav, p, section, article {
 
 .hero {
     position: relative;
-    height: 400px;
+    height: 430px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    overflow: hidden;
 }
 
 .hero>img {
@@ -117,28 +107,104 @@ nav, p, section, article {
     object-fit: cover;
     object-position: center;
 }
-  
-h1 {
+
+.hero::before {
+    content: "";
     position: absolute;
-    top: 120px;
-    width: 95%;
-    padding: 16px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250%;
+    z-index: 1; 
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 0%,   
+        rgba(255, 255, 255, 0) 10%,  
+        rgba(255, 255, 255, 0) 90%,  
+        rgba(255, 255, 255, 1) 100%  
+    );
+}
+
+.hero-title {
+    position: absolute;
+    top: -80px;
+    width: 100%;
+    padding: 250px 0;
+    opacity: 80%;
+    font-family: var(--heading-font);
+    color: var(--secondary-color);
     text-align: center;
-    opacity: 1;
+    align-content: flex-start;
     background-color: var(--accent1-color);
-    color: #fcfcfc;
 }
 
-.hero article {
+h2 {
+    font-family: var(--heading-font);
+    text-align: center;
+    color: var(--accent1-color);
+}
+
+.subscribe {
+    position: relative;
+}
+.subscribe h3 {
+    text-align: center;
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+.newsletter {
     position: absolute;
-    top: 170px;
-    width: 95%;
+    padding: 15px;
+    top: -25px;
+    right: 10px;
+    width: 400px;
     opacity: 1;
-    background-color: var(--accent2-color);
+    border-radius: 5px 25px 5px 60px;
+    background-color: var(--accent1-color);
+    color: #ffffff;
+    z-index: 2; 
+    border: 1px solid rgba(0 0 0 / .3);
+    box-shadow: 0 0 30px #1e1b1b;
+}
+.newsletter div  {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-row: 1fr;
+    width: 100%;
+    margin-top: 5px;
+    padding: 2px;
+}
+.newsletter label {
+    grid-column: 1/2;
+    text-align: right;
+    padding-right: 10px;
+}
+.newsletter input {
+    grid-column: 2/3;
+    border-radius: 5px;
+    padding-left: 10px;
+    box-shadow: 0 0 30px #1e1b1b;
 }
 
-.hero p {
-    margin: 0;
+.newsletter input, .newsletter label, .newsletter button {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+.newsletter label, .newsletter button {
+    margin-top: 5px;
+}
+.newsletter button {
+    grid-column: 2/3;
+    background-color: var(--secondary-color);
+    padding: 5px;
+    box-shadow: 0 0 30px #1e1b1b;
+}
+.newsletter button:hover {
+    background-color: #264653;
+    color: #ffffff;
 }
 
 .hero article img {
@@ -146,10 +212,215 @@ h1 {
     width: 125px;
 }
 
+.home-hero-paragraph {
+    position: absolute;
+    padding-top: 15px;
+    width: 560px;
+    top: 190px;
+    z-index: 4;
+    color: #ffffff;
+}
+
+.call-to-action {
+    position: absolute;
+    top: 300px;
+    left: 220px;
+    width: 250px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
+    color: var(--primary-color);
+    opacity: 1;
+    background-color: var(--secondary-color); 
+    box-shadow: 0 0 30px #1e1b1b;
+}
+
+.call-to-action:hover {
+    background-color: #264653;
+    color: #ffffff;
+}
+
+.call-to-contact {
+    position: absolute;
+    top: 300px;
+    width: 500px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 15px;
+    color: var(--primary-color);
+    opacity: 1;
+    background-color: var(--secondary-color); 
+    box-shadow: 0 0 30px #1e1b1b;
+}
+
+/* contact page */
+
+.contact-title {
+    font-family: var(--heading-font);
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    opacity: 1;
+    color: #100f0f;
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-info p{
+    padding: 0;
+    margin: 0;
+}
+
+.map-form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.map {
+    grid-area: 1/1/2/2;
+    text-align: right;
+    position:relative;
+    width:100%; 
+    height:100%;
+    margin-right: 5px;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none;
+    width:100%;
+    height:100%;
+}
+
+.gmap_canvas iframe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border:0;
+}
+
+.mapouter a {
+    display: block;
+    font-size: 0.85em;
+    text-align: center;
+    padding: 5px 0;
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.gme-generated-link {
+    display: none;
+}
+
+.contact-form {
+    grid-area: 1/2/2/3;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.contact-form * {
+    padding: 5px;
+}
+
+.contact-form form {
+    display: block;
+}
+
+.name, .email, .message-wrap {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    text-align: left;
+    align-items: center;
+}
+
+.message-radio {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.textarea * {
+    display: block;
+}
+
+.textarea label {
+    text-align: left;
+}
+.textarea textarea {
+    width: 100%;
+}
+
+.form-subscribe {
+    text-align: left;
+}
+
+button {
+    display: block;
+    width: 100%;
+    height: 45px;
+}
+
+nav, p, section, article {
+    margin: 16px;
+    padding: 8px;
+}
+
+.adventure-container {
+    display: block;
+    padding-bottom: 30px;
+}
+
+.adventure-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+figure img{
+    width: auto;
+    height: 150px;
+}
+
+figure {
+    text-align: center;
+    width: 175px;
+    padding: 10px;
+    box-shadow: 0 0 10px gray; 
+}
+
+figcaption {
+    padding: 10px;
+}
+/* contact page end */
+
+
+
+.hero article {
+    position: absolute;
+    top: 200px;
+    width: .1;
+    opacity: 1;
+    border-radius: 20px;
+    color: var(--accent3-color);
+    box-shadow: 0 0 30px #777;
+}
+
+.hero article img {
+    float: right;
+    width: 125px;
+    margin-left: 10px;
+}
 section {
     margin: 20px 0 auto;
     padding: 0;
-    border: solid 1px gray;
     padding: 5px;
 }
 
@@ -197,11 +468,88 @@ figure img{
     height: auto;
 }
 
+/* home */
+.grid-home-section {
+    position: relative;
+    width: 980px;
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+}
+
+.grid-home-section p {
+    padding: 0;
+    margin: 20px 0;
+}
+.grid-home-section img {
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.grid-home-div-one {
+    grid-area: 1/1/2/2;
+    padding: 20px;
+}
+
+
+.grid-home-div-two {
+    grid-area: 1/2/3/2;
+    padding: 20px;
+}
+
+/* home end */
+
+/* trip */
+.trip-div {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.trip-div img {
+    grid-area: 1/1/2/2;
+    width: 100%;
+    
+}
+.trip-p {
+    grid-area: 1/2/2/3;
+    width: 100%;
+    margin: 0;
+}
+
+.trip-table {
+    width: 100%;
+    margin: 0 0 50px 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+.trip-table td, .trip-table th {
+    border: 1px black solid;
+    padding: 10px;
+}
+
+.trip-table thead {
+    background-color: var(--accent1-color);
+    color: var(--accent3-color);
+}
+
+.text-align-right {
+    text-align: right;
+}
+
 footer {
     margin: 15px auto;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    background-color: var(--accent1-color);
+    color: var(--accent3-color);
 }
 
 .socialmedia {
