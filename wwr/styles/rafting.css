@@ -355,16 +355,28 @@ h2 {
 }
 .textarea textarea {
     width: 100%;
+    border-radius: 5px;
 }
 
 .form-subscribe {
     text-align: left;
 }
 
-button {
+.contact-form button {
     display: block;
     width: 100%;
     height: 45px;
+    background-color: var(--accent1-color);
+    color: var(--accent3-color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px gray;
+}
+
+.contact-form button:hover {
+    background-color: var(--secondary-color);
+    color: var(--accent1-color);
+    box-shadow: 0 0 10px gray;
+    border: none;
 }
 
 nav, p, section, article {
